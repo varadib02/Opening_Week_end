@@ -23,8 +23,8 @@ namespace OpeningWeekend
             magyarCim = s[1];
             bemutato = DateTime.Parse(s[2]);
             forgalmazo = s[3];
-            bevel = int.Parse(s[4]);
-            latogato = int.Parse(s[5]);
+            bevel = Convert.ToInt32(s[4]);
+            latogato = Convert.ToInt32(s[5]);
         }
     }
 }
