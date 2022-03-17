@@ -17,7 +17,8 @@ namespace OpeningWeekend
                 nyito_weekend.Add(new O_weekend(sor));
             }
             Console.WriteLine($"3.feladat: Filmek száma az állományban: {nyito_weekend.Count} db ");
-            Console.WriteLine($"4.feladat: UIP Duna film forgalmazó 1.hetes bevételeinek összege: {nyito_weekend.Where(x=>x.forgalmazo=="UIP").GroupBy(x=>x.bevel).Sum()} Ft ");
+            
+            Console.WriteLine($"4.feladat: UIP Duna film forgalmazó 1.hetes bevételeinek összege: {nyito_weekend.Where(x => x.forgalmazo == "UIP").Sum((x => (long)x.bevetel))} Ft ");
         }
     }
 }

@@ -12,7 +12,7 @@ namespace OpeningWeekend
         public string magyarCim { get; set; }
         public DateTime bemutato { get; set; }
         public string forgalmazo { get; set; }
-        public int bevel { get; set; }
+        public int bevetel { get; set; }
         public int latogato { get; set; }
 
         public O_weekend(string sor)
@@ -23,8 +23,8 @@ namespace OpeningWeekend
             magyarCim = s[1];
             bemutato = DateTime.Parse(s[2]);
             forgalmazo = s[3];
-            bevel = Convert.ToInt32(s[4]);
-            latogato = Convert.ToInt32(s[5]);
+            bevetel = int.Parse(s[4]);
+            latogato = int.Parse(s[5]);
         }
     }
 }
