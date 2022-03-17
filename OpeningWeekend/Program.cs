@@ -19,6 +19,14 @@ namespace OpeningWeekend
             Console.WriteLine($"3.feladat: Filmek száma az állományban: {nyito_weekend.Count} db ");
             
             Console.WriteLine($"4.feladat: UIP Duna film forgalmazó 1.hetes bevételeinek összege: {nyito_weekend.Where(x => x.forgalmazo == "UIP").Sum((x => (long)x.bevetel))} Ft ");
+
+            Console.WriteLine($"5.feladat: Legtöbb látógató az első héten:");
+            O_weekend legtöbb = (O_weekend)nyito_weekend.OrderBy(x => x.latogato).Last();
+            Console.WriteLine($"\tEredeti cím:{legtöbb.eredetiCim}");
+            Console.WriteLine($"\tMagyar cím:{legtöbb.magyarCim}");
+            Console.WriteLine($"\tForgalmazó:{legtöbb.forgalmazo}");
+            Console.WriteLine($"\tBevétel:{legtöbb.bevetel} Ft");
+            Console.WriteLine($"\tLátogatók száma:{legtöbb.latogato} fő");
         }
     }
 }
