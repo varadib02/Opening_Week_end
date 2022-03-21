@@ -27,20 +27,22 @@ namespace OpeningWeekend
             Console.WriteLine($"\tForgalmazó:{legtöbb.forgalmazo}");
             Console.WriteLine($"\tBevétel:{legtöbb.bevetel} Ft");
             Console.WriteLine($"\tLátogatók száma:{legtöbb.latogato} fő");
-            bool igaz = nyito_weekend
+            /*bool igaz = nyito_weekend
                 .Any(x => x.eredetiCim.ToLower().Split(' ').All(y => y.ToLower().First() == 'w') &&
                           x.magyarCim.ToLower().Split(' ').All(y => y.ToLower().First() == 'w'));
             Console.WriteLine($"6.feladat: Ilyen film{(igaz ? "" : "nem")} volt!");
+            */
+            bool volT = false;
+            foreach (var i in nyito_weekend)
+            {
+                if (i.eredetiCim.ElementAt(0) == 'W' && i.magyarCim.ElementAt(0) == 'W') volT=true;
+            }
+            Console.WriteLine($"6.feladat: Ilyen film{(volT ? "" : "nem")} volt!");
 
             Console.WriteLine($"7.feladat: ->stat.csv");
-            File.Create("stat.csv");
-            StreamWriter sw = new StreamWriter(@"stat.csv");
+            StreamWriter sw = File.CreateText("stat.csv");
             sw.WriteLine("forgalmazo;filmekSzama");
-            nyito_weekend.GroupBy(x => x.forgalmazo);
-            foreach (var i in )
-            {
-                sw.WriteLine($"");
-            }
+            nyito_weekend.GroupBy(x => x.forgalmazo).Select(y => new { forg = y.Key, db = y.Count() }).Where(x=>x.db>1).ToList().ForEach(z => Console.WriteLine($"{z.forg},{z.db}"));
         }
     }
 }
